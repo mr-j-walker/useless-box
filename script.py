@@ -11,18 +11,16 @@ def loadingAnimation(interval = 0):
         loadingAnimation(interval + 1)
 
 def clear(interval = 0):
-    if interval == -1:
-       interval = random.randint(1,5)
     sleep(interval)
     os.system('cls' if os.name == 'nt' else 'clear')
 
 def toggleSwitch(switch):
     if not switch:
-        loadingAnimation()
+        loadingAnimation(10)
     else:
         loadingAnimation()
     switch = not switch
-    print("\nThe switch has been flipped " + ("off" if not switch else "on"))
+    print("The switch has been flipped " + ("off" if not switch else "on"))
     sleep(1)
     return switch
 
@@ -30,14 +28,12 @@ def main():
     switch = False
     while True:
         clear()
-        print("\nThe switch is " + ("off" if not switch else "on"))
+        print("The switch is " + ("off" if not switch else "on"))
         choice = input("\nWould you like to turn it on? (y/n)\n").upper()
         if choice == "Y":
             switch = toggleSwitch(switch)
         elif choice == "N":
             return
-        else:
-            loadingAnimation()
         
         if switch:
             switch = toggleSwitch(switch)
