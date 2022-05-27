@@ -31,7 +31,7 @@ def main():
     while True:
         clear()
         print("\nThe switch is " + ("off" if not switch else "on"))
-        choice = input("\nWould you like to turn it on?\n").upper()
+        choice = input("\nWould you like to turn it on? (y/n)\n").upper()
         if choice == "Y":
             switch = toggleSwitch(switch)
         elif choice == "N":
